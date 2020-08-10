@@ -24,3 +24,20 @@ compileKotlin {
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
+
+test {
+    useJUnitPlatform()
+}
+
+test {
+
+    filter {
+        includeTestsMatching "NoughtsAndCrossesIOSTest"
+    }
+
+}
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+    jvmArgs '--enable-preview'
+}
